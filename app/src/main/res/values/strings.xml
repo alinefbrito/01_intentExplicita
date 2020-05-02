@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Exercicio01</string>
+    <string name="edit_message">Digite um Texto</string>
+    <string name="button_send">Enviar</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display_message">Texto</string>
+    <string name="titulo">Resposta</string>
+</resources>
