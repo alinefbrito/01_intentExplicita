@@ -8,11 +8,21 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    //constantes devem ser declaradas sempre em CAIXA ALTA
+    //define a constante que será utilizada como chave
     public final static String EXTRA_MESSAGE = ".MESSAGE";
+
+    //declara um elemento edit Text
+    EditText elemento_edit;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Instância local do elemento EditText que contem o valor a ser utilizado
+        elemento_edit = findViewById(R.id.edit_message);
     }
 
     /**
@@ -21,13 +31,15 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view) {
         //Instancia a Intent
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        // Instancia local do elemento que contem o valor a ser utilizado
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        //recupera o valor do elemento
-        String message = editText.getText().toString();
+
+        //recupera o valor do elemento já instanciado
+        String message = elemento_edit.getText().toString();
+
         //adiciona o valor ao parâmetro
         intent.putExtra(EXTRA_MESSAGE, message);
+
         //inicia a Intent
         startActivity(intent);
     }
+
 }

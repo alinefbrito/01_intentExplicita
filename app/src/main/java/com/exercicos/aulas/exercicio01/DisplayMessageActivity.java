@@ -1,9 +1,8 @@
 package com.exercicos.aulas.exercicio01;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ViewGroup;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,18 +15,24 @@ public class DisplayMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
 
-        //recupera o valor enviado
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        //recupera A Intent
+        Intent intentDisplay = getIntent();
+        // recuperao valor de string enviado através da chave
+        String messageDisplay = intentDisplay.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         //define um novo elemento TextView
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);
+        TextView txtView = new TextView(this);
+        //define o tamanho da fonte do textView
+        txtView.setTextSize(40);
+        //define a mensagem de texto do textView
+        txtView.setText(messageDisplay);
+
 
         //O elemento criado será adicionado ao Layout.
         //O layout Linear não necessita definição do posicionamento
-        LinearLayout ll =(LinearLayout)findViewById(linear_layout);
-        ll.addView(textView);
+        LinearLayout ll = findViewById(linear_layout);
+        ll.addView(txtView);
     }
+
+
 }
